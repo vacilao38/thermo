@@ -1,0 +1,22 @@
+name: codex_thermometer
+description: Termômetro de limites e atividade do Codex para Windows.
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: ^3.12.1
+dependencies:
+  flutter:
+    sdk: flutter
+  path_provider: 2.1.6
+  clustter_update:
+    git:
+      url: https://github.com/vacilao38/clustter-update.git
+      ref: 4f518a8e884bf0bbc2e83acb0d95c4e3ad2bcce7
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  integration_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true

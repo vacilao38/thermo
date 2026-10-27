@@ -1,0 +1,6 @@
+workspace = "default"
+project = "codex_thermometer-f2b83602a8"
+
+[profile]
+contribute = true
+consume = true

@@ -6,7 +6,7 @@
 - `flutter test --no-pub`: 13 testes. Cobrem ausência de dados, janelas semanais sem janela curta, preferir múltiplos buckets ao legado, clamping, reset vencido, soma de sete datas, baseline herdado, snapshots repetidos, replay de fork, JSON parcial e UTF-8, recuperação de falha e layout de 360/790/1120 px com texto 150%.
 - `flutter test integration_test/windows_test.dart -d windows --no-pub`: integração real aprovada. Consulta limites/histórico da conta pelo Codex instalado; lê eventos locais reais; obtém taxa de tokens/min após duas leituras; confere Win32 topmost, compacto, recolher/mostrar e capturas renderizadas nos temas claro/escuro e nas áreas superior/inferior. Dados e capturas ficam em outputs/ ignorado.
 - `flutter build windows --release --no-pub`: executável x64 `0.1.0+1` compilado.
-- Instalador NSIS por usuário gerado pelo empacotador compartilhado. Runtime VC145 incluído. Setup normal: 10.071.674 bytes; SHA-256 `f5299fb8e87ec793794cb6acf8281c3a07934f922a790a9042dde87bca89609b`.
+- Instalador NSIS por usuário gerado pelo empacotador compartilhado. Runtime VC145 incluído. Setup final: 10.071.634 bytes; SHA-256 `a59ea9986bd6267ce7a620496c996c61a93e3b48fa0dba38bf322a4a3b0e8e7b`.
 - Pacote de teste isolado instalado/desinstalado com `tool/check_installer.py`. Confirmados registro separado, binários e CRT presentes, remoção do executável/registro e preservação de arquivo adicional do usuário. O alvo foi outputs/installer-test, sem atalhos nem registro da instalação normal.
 - Segunda passagem crítica feita pelo próprio agente: corrigidos overflow no cabeçalho em tela estreita, contagem de replay entre forks e contraste de cores de texto no tema escuro. Nenhuma revisão independente por outro agente foi alegada.
 
@@ -14,6 +14,7 @@
 
 - Primeira compilação Release coincidiu com integração Debug no mesmo diretório CMake e falhou na etapa INSTALL. Execuções seguintes ocorreram em sequência e passaram. Não executar dois builds do projeto ao mesmo tempo.
 - O runtime externo de Computer Use não inicializou neste ambiente. A inspeção visual usou imagens do RepaintBoundary do aplicativo Windows em execução, e os controles Win32 foram verificados pela integração nativa.
+- A última abertura Release expôs interpretação ANSI do título C++ mesmo com arquivos UTF-8. Corrigido com `/utf-8` no alvo runner; Release e instalador regenerados. A instância final abriu e respondeu; o título foi verificado por codepoints (14 caracteres, separador U+00B7). A correção não mudou lógica do instalador; o ensaio isolado anterior continua sendo a evidência de instalação/desinstalação.
 
 ## Não executado / limitações
 

@@ -104,3 +104,79 @@
   }
 }
 ```
+
+```bmds-json
+{
+  "bmds": "0.1",
+  "kind": "cache",
+  "id": "bmds://codex_thermometer-f2b83602a8/cell/msvc-utf-8-no-runner-2775400c1d",
+  "rev": 1,
+  "cell_type": "atomic",
+  "created_at": "2026-10-27T09:06:26-03:00",
+  "tags": [
+    "thermo",
+    "utf8",
+    "windows"
+  ],
+  "slots": [
+    "Gotcha verificado no runner Windows: arquivo C++ em UTF-8 também exige MSVC /utf-8.",
+    [
+      "O título nativo inicial interpretou o separador como U+00C2 U+00B7.",
+      "Após target_compile_options runner PRIVATE /utf-8, Release recompilado; título correto confirmado por codepoints e processo respondendo.",
+      "Instalador final regenerado; tamanho/hash em docs/VALIDATION.md."
+    ],
+    [
+      "Manter /utf-8 no alvo runner para preservar títulos, tooltips e mensagens nativas em português."
+    ],
+    [],
+    [
+      "windows/runner/CMakeLists.txt",
+      "windows/runner/main.cpp",
+      "docs/VALIDATION.md"
+    ],
+    "27/10/2026: correção final de codificação após inspeção da instância Release real.",
+    [
+      "Origem: observação do processo próprio Thermo e comparação dos codepoints antes/depois; sem dados da conta.",
+      "13 testes e integração real passaram antes deste ajuste de compilador. O pacote foi recompilado, aberto e conferido depois."
+    ],
+    [
+      "utf8",
+      "msvc",
+      "windows",
+      "runner",
+      "thermo"
+    ]
+  ],
+  "provenance": {
+    "operation": "write",
+    "sources": [],
+    "actor": "human"
+  }
+}
+```
+```bmds-json
+{
+  "bmds": "0.1",
+  "kind": "stack",
+  "id": "bmds://codex_thermometer-f2b83602a8/stack/desenvolvimento",
+  "rev": 2,
+  "updated_at": "2026-10-27T09:06:26-03:00",
+  "logical_clock": 2,
+  "members": [
+    {
+      "id": "bmds://codex_thermometer-f2b83602a8/cell/msvc-utf-8-no-runner-2775400c1d",
+      "rev": 1
+    },
+    {
+      "id": "bmds://codex_thermometer-f2b83602a8/cell/thermo-windows-0.1.0-7dbd5ae695",
+      "rev": 1
+    }
+  ],
+  "policy": {
+    "soft_cells": 16,
+    "hard_tokens": 4096,
+    "keep_hot": 4
+  },
+  "parent_rev": 1
+}
+```
